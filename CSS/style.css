@@ -6,9 +6,7 @@ header>ul {
     background-color: #fa8072;
   }
 
-  header>ul>li {
-    float: left;
-  }
+
 
   header>ul>li a {
     color: black;
@@ -21,11 +19,22 @@ header>ul {
       background-color:sienna;
       padding : 30px;
       text-align: center;
+      font-size:larger;
 
   }
   
   
+h1{
 
+  text-align: center;
+  font-size:larger;
+
+}
+a{
+  text-align: center;
+  font-size:larger;
+
+}
 body{
     background-color:rgb(238, 224, 148);
     text-decoration-color: rgb(0, 0, 0);
