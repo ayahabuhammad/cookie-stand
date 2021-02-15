@@ -1,7 +1,7 @@
 'use strict';
 
-const Seatle = {
-  name: 'Seatle',
+const Seattle = {
+  name: 'Seattle',
   minCustomers: 23,
   maxCustomers: 65,
   avgCookie: 6.3,
@@ -13,7 +13,7 @@ const Seatle = {
     this.numofCustomers = getRandomInt(this.minCustomers, this.maxCustomers);
   },
   render: function () {
-    const container = document.getElementById('seatle');
+    const container = document.getElementById('Seattle');
     const articleEl = document.createElement('article');
     container.appendChild(articleEl);
     const h2El = document.createElement('h2');
@@ -24,7 +24,7 @@ const Seatle = {
     let sum=0;
     for (let i = 0; i < this.hours.length; i++) {
       const liEl = document.createElement('li');
-      Seatle.getnumofCustomers();
+      Seattle.getnumofCustomers();
       ulEl.appendChild(liEl);
       this.totalPerhour[i] = Math.floor(this.numofCustomers * this.avgCookie);
       sum=sum+this.totalPerhour[i];
@@ -197,7 +197,7 @@ function getRandomInt(min, max) {
   return Math.floor(Math.random() * (max - min + 1) + min);
 }
 
-Seatle.render();
+Seattle.render();
 Tokyo.render();
 Dubai.render();
 Paris.render();
