@@ -39,3 +39,17 @@ body{
     background-color:rgb(238, 224, 148);
     text-decoration-color: rgb(0, 0, 0);
   }
+
+  #mDiv{
+    margin-left: 17%;
+}
+th, tr, td{
+    background-color: white;
+    border: 1px dotted black;
+    text-align: center;
+    padding: 10px;
+    opacity: 1;
+}
+th, tr, td:hover{
+    filter: invert();
+}
