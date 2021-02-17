@@ -1,7 +1,11 @@
 'use strict';
-let hours = ['6am ', '7am ', '8am ', '9am ', '10am ', '11am '
+
+
+// //var total=0;
+var hours = ['6am ', '7am ', '8am ', '9am ', '10am ', '11am '
   , '12am ', '1pm ', '2pm ', '3pm ', '4pm ', '5pm ', '6pm ', '7pm '];
 
+// My helper function
 function getRandomCustomer(min, max) {
   min = Math.ceil(min);
   max = Math.floor(max);
@@ -9,50 +13,52 @@ function getRandomCustomer(min, max) {
 }
 
 
-let salmonContainer = document.getElementById('Salmon-Cookies');
-
-let salmonTable = document.createElement('table');
+var salmonContainer = document.getElementById('Salmon-Cookies');
+//creating my table tag
+var salmonTable = document.createElement('table');
 salmonTable.setAttribute('id' , 'my-table');
 
 salmonContainer.appendChild(salmonTable);
 
+//creating <thead> tag
+// var firstThead = document.createElement('thead');
+// salmonTable.appendChild(firstThead);
 
+var myBranches = []; //empty array to push the object inside it
 
-let myBranches = [];
-
-
+// This is my Constructor
 function Branches (minCustomer,maxCustomer,avgNum,location){
-  this.minCustomer = minCustomer;
-  this.maxCustomer = maxCustomer;
-  this.avgNum = avgNum ;
+  this.minCustomer = minCustomer; // For minimun number of customer per hour
+  this.maxCustomer = maxCustomer; // For maximum number of customer per hour
+  this.avgNum = avgNum ; // For avg number of cookies per customer
   this.location=location;
   this.numOfCookies = [];
   this.totalCookies = 0;
   myBranches.push(this);
   this.myNumber();
 }
+////////////////////////////////////////////////
 
-
-
+// My method to defines number of cookies for each hour
 Branches.prototype.myNumber=function(){
-  for (let i = 0; i < hours.length; i++) {
-    let myAvg = Math.floor(this.avgNum);
-    this.numOfCookies.push((getRandomCustomer(this.minCustomer, this.maxCustomer)) * myAvg);
+  for (var i = 0; i < hours.length; i++) {
+    var myAvg = Math.floor(this.avgNum); // converte the num from decimal to integer
+    this.numOfCookies.push((getRandomCustomer(this.minCustomer, this.maxCustomer)) * myAvg); // to calculate the number of cookies
 
-    this.totalCookies = this.totalCookies + this.numOfCookies[i];
+    this.totalCookies = this.totalCookies + this.numOfCookies[i]; //for calculat the daily location total
 
   }
 };
 
 
-
+/////////////////////////////////////////////////////////
 
 
 
 
 Branches.prototype.myBodyRender=function(){
 
-  let secondTr = document.createElement('tr');
+  var secondTr = document.createElement('tr');
   salmonTable.appendChild(secondTr);
   var mySecTd = document.createElement('td');
   secondTr.appendChild(mySecTd);
@@ -60,15 +66,18 @@ Branches.prototype.myBodyRender=function(){
 
 
 
-  for (let j=0 ;j<hours.length ;j++){
-    let firstTd=document.createElement('td');
+  for (var j=0 ;j<hours.length ;j++){ //This loop print the number of cookies in each branch per hour
+    var firstTd=document.createElement('td');
     firstTd.textContent= `${this.numOfCookies[j]} ` ;
     secondTr.appendChild(firstTd);
   }
 
   var firsttTd=document.createElement('td');
-  firsttTd.textContent+= `${this.totalCookies} ` ;
+  firsttTd.textContent+= `${this.totalCookies} ` ; //This statement to print the daily location data
   secondTr.appendChild(firsttTd);
+
+
+  //  Branches(myBranches.newBranch());
 
 };
 
@@ -84,21 +93,29 @@ new Branches(2, 16 , 4.6 , 'Lima');
 
 
 myFooterRender();
+///////////////////////////////////////////////
 function myHeaderRender(){
+
+
+  //creating <tr> tag for header
   var firstTr = document.createElement('tr');
   salmonTable.appendChild(firstTr);
 
   var firstttTh = document.createElement('th');
   firstttTh.textContent = '';
   firstTr.appendChild(firstttTh);
-  for (let i = 0; i < hours.length; i++) {
-    let firstTh = document.createElement('th');
+  //This (for loop) list my hours in a row
+  for (var i = 0; i < hours.length; i++) {
+    var firstTh = document.createElement('th');
     firstTr.appendChild(firstTh);
     firstTh.textContent = hours[i] ;
+    // firstTh.classList.add("mystyle");
   }
-  let thTotal= document.createElement('th');
+  // This is for creat another cell in the same row
+  var thTotal= document.createElement('th');
   thTotal.textContent='Total1';
   firstTr.appendChild(thTotal);
+  //firstTh.classList.add("mystyle");
 }
 
 ////////////////////////////////////////////////////////////////////
@@ -114,32 +131,44 @@ function myFooterRender () {
   finalTh.textContent = ('Total');
 
   var finalTotal = 0;
-  for (var x=0 ; x< hours.length ; x++){
+  for (var x=0 ; x< hours.length ; x++){ //these tow loops for the total in every our for all branches
     var myTotal =0;
-    for (let z=0;z<myBranches.length ; z++) {
+    for (var z=0;z<myBranches.length ; z++) {
       myTotal += (myBranches[z].numOfCookies[x]);
     }
 
-    let finalTd = document.createElement('td');
+    var finalTd = document.createElement('td');
     finalTd.textContent = myTotal;
     finalTotal +=myTotal;
     finalTr.appendChild(finalTd);
   }
 
-  let tdTd=document.createElement('td');
+  var tdTd=document.createElement('td');
   tdTd.textContent=finalTotal;
   finalTr.appendChild(tdTd);
 
 }
 
+//////////////////////////////////////////////////////////////////
 
 
 myHeaderRender();
-for(let i=0 ; i<myBranches.length ; i++){
+for(var i=0 ; i<myBranches.length ; i++){
   myBranches[i].myBodyRender();
 
 }
 myFooterRender();
+
+///////////////////////////////////////////////
+//consider a for loop for the hours
+//create a th element
+//give the th element some text content like hours [i];
+//appendChild
+
+//remember to put an "empty" <th></th> element at the top of the table to push the "6am" cell over to the right.
+
+// console.log(allObj);
+
 
 // const seattle = {
 //   name: 'seattle',
@@ -322,8 +351,3 @@ myFooterRender();
 //   },
 // };
 
-// seattle.render();
-// tokyo.render();
-// dubai.render();
-// paris.render();
-// lima.render();
