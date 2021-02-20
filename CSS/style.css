@@ -35,28 +35,30 @@ a {
   color: var(--secondary--color);
 }
 .p1 {
-margin-top: 5%;
+margin-top: 7%;
 margin-left: 5%;
 font-size: 300%;
 font-family: 'caveat';
 text-align: center;
+color:var(--secondary--color);
 }
 
 img.family-img{
   float: right;
   border-radius: 70%;
   width: 45%;
-  margin-top: 5%;
+  margin-top: -1%;
   margin-right: 5%;
 }
 
 input[type=text], input[type=number] {
   width: 100%;
-  padding: 14px 20px solid;
+  padding: 20px 40px solid;
   margin: 8px 0;
   display: inline-block;
-  border: 1px solid #ccc;
-  border-radius:30%;
+  border: 3px  var(--secondary--color);
+  border-style:solid;
+  border-radius:40px;
   box-sizing:border-box;
 }
 
@@ -64,28 +66,40 @@ input[type=submit] {
   width: 20%;
   background-color:var(--secondary--color);
   color: white;
-  padding: 14px 20px;
+  padding: 14px 14px;
+  border-color:var(--secondary--color);
   margin: 8px 0;
-  border:none;
-  border-radius: 4px;
+  border-style:ridge;
+  border-radius: 50px;
   cursor: pointer;
-  margin-left: 300px;
-  font-size:larger;
+  margin-left: 350px;
+  font-size:large;
 }
 legend{
+
+  display:inline-block;
   text-align: center;
-  font-size:xx-large;
+  padding-bottom: 7px;
+  font-size:x-large;
   font-style: oblique;
-  color: var(--secondary--color);
+  color:black;
   font-weight: bolder;
+
 }
 
 fieldset {
-
-  border-style:ridge;
-  border-radius: 20%;
-  border-color:var(--primary--color);
+  background-color:var(--primary--color);
+  border-style:solid;
+  border-radius: 70px;
+  border-color: var(--secondary--color);
+  text-align: center;
+  color:var(--secondary--color);
+  font-style: oblique;
+  font-size: large;
+  font-size: 20px;
 }
+
+
 
 #cookieform {
   width: 50%;
@@ -109,6 +123,41 @@ th, td {
   margin-bottom: 20px;
 }
 
+#branches{
+  border-top-style: ridge;
+  border-top-width: thick;
+}
+
+h2{
+  clear: both;
+  font-size: 100px;
+  font-family: 'Caveat';
+  margin-top: 15%;
+  margin-bottom: 15px;
+  color:var(--secondary--color);
+  font-weight: 250px;
+  text-align: center;
+}
+.column {
+  margin-top: 80px;
+  float:left;
+  width: 19.33%;
+  padding: 1px; 
+  margin-left: 6px;
+  margin-bottom: 40px;
+  
+
+}
+.column img{
+  float: right;
+  width: 45%;
+  margin-right: 5%;
+  margin-top: 5%;
+  margin-left: 5%;
+  border-radius: 70%;
+  
+}
+
 
 footer {
   clear: both;
@@ -116,6 +165,25 @@ footer {
   color: var(--secondary--color);
   text-align: center;
   width: 100%;
-  height: 60px;
+  height: 50px;
   padding-top: 10px;
+  
+}
+
+.icon-bar {
+  margin-top: -40px;
+  margin-right: 4%;
+  float: right;
+  clear: right;
+}
+.icon-bar a {
+  text-align: center;
+  font-size: 16px;
+  padding: 13px;
+
+
+}
+
+.icon-bar a:hover {
+  background-color:var(--secondary--color)
 }

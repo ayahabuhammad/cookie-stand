@@ -12,7 +12,7 @@ function getRandomCustomer(min, max) {
 
 
 const salmonContainer = document.getElementById('salmonapp');
-const salmonTable = document.createElement('table');
+const salmonTable=document.createElement('table');
 salmonTable.setAttribute('id' , 'my-table');
 
 salmonContainer.appendChild(salmonTable);
